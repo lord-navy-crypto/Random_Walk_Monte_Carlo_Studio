@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rw-mc-studio"
+version = "4.0.0"
+description = "Visual-first interactive studio for random walks, Monte Carlo methods, and uncertainty analysis"
+requires-python = ">=3.11"
+dependencies = [
+  "numpy>=1.26",
+  "scipy>=1.11",
+  "pandas>=2.0",
+  "matplotlib>=3.8",
+  "streamlit>=1.36",
+]
+
+[tool.setuptools.packages.find]
+include = ["rw_mc_studio*"]

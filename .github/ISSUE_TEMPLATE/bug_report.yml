@@ -1,0 +1,36 @@
+name: Bug report
+description: Report a reproducible problem in the application or numerical engine.
+title: "[Bug]: "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: Thanks for helping improve the project. Do not include private data or credentials.
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      placeholder: 4.0.0
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Problem
+      description: Describe what happened and what you expected.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction steps
+      description: Include the module, parameters, seed, and exact steps.
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Include operating system, Python version, and dependency versions.
+    validations:
+      required: true

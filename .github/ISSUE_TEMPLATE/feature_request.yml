@@ -1,0 +1,24 @@
+name: Feature request
+description: Propose a focused scientific or usability improvement.
+title: "[Feature]: "
+labels: [enhancement]
+body:
+  - type: textarea
+    id: use_case
+    attributes:
+      label: Scientific use case
+      description: Explain the experiment or decision this feature would support.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed behavior
+      description: Describe the visualization, key metrics, and complete data output.
+    validations:
+      required: true
+  - type: textarea
+    id: references
+    attributes:
+      label: References
+      description: Add relevant formulas, papers, or documentation links.
