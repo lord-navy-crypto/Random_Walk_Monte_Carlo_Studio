@@ -140,7 +140,7 @@ st.caption(
 st.info(RESULT_ORDER_NOTE)
 
 with st.sidebar:
-    st.header("Global settings")
+    st.header("1 · Setup — Global settings")
     seed = st.number_input(
         "Random seed",
         min_value=0,
@@ -169,17 +169,19 @@ with st.sidebar:
     grid_tab,
     audit_tab,
     preset_tab,
+st.caption("Workspace order: Setup → Run → Results → Analysis → Verification / Export.")
+
 ) = st.tabs(
     [
-        "Study Map",
-        "Random Walk Ensemble",
-        "Parameter Scan",
-        "Repeated Monte Carlo",
-        "High-Dimensional Ball",
-        "Return and First Passage",
-        "Grid vs Monte Carlo",
-        "Reproducibility Audit",
-        "Presets and Glossary",
+        "1 · Overview — Study map",
+        "2 · Run — Random-walk ensemble",
+        "3 · Run — Parameter scan",
+        "4 · Analysis — Repeated Monte Carlo",
+        "5 · Analysis — High-dimensional ball",
+        "6 · Analysis — Return & first passage",
+        "7 · Comparison — Grid vs Monte Carlo",
+        "8 · Verification — Reproducibility",
+        "9 · Reference — Presets & glossary",
     ]
 )
 
