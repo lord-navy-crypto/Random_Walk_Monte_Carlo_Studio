@@ -189,8 +189,6 @@ with st.sidebar:
     grid_tab,
     audit_tab,
     preset_tab,
-st.caption("Workspace order: Setup → Run → Results → Analysis → Verification / Export.")
-
 ) = st.tabs(
     [
         "1 · Overview — Study map",
@@ -205,6 +203,8 @@ st.caption("Workspace order: Setup → Run → Results → Analysis → Verifica
     ]
 )
 
+
+st.caption("Workspace order: Setup → Run → Results → Analysis → Verification / Export.")
 
 with overview_tab:
     st.subheader("Reconstructed study map")
