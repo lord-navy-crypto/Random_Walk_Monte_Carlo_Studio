@@ -141,12 +141,32 @@ st.info(RESULT_ORDER_NOTE)
 
 with st.sidebar:
     st.header("1 · Setup — Global settings")
+    with st.expander("Quick reproducibility handoff", expanded=False):
+        st.caption("Pin a random seed for your current experiment. Return to it with one click after trying another seed—no copy, downloads or external communication.")
+        if st.button("Pin current seed", key="rw_pin_seed"):
+            st.session_state["_rw_pinned_seed"] = int(
+                st.session_state.get("rw-global-seed", 12_345)
+            )
+            st.success("Pinned this session's random seed.")
+        if "_rw_pinned_seed" in st.session_state:
+            st.caption(f"Pinned seed: {st.session_state['_rw_pinned_seed']}")
+            if st.button("Restore pinned seed", key="rw_restore_seed"):
+                st.session_state["rw-global-seed"] = st.session_state["_rw_pinned_seed"]
+                for name in (
+                    "ensemble_result", "trajectory_result", "scan_result",
+                    "repeated_mc_result", "convergence_result", "ball_mc_result",
+                    "qmc_result", "return_result", "first_passage_result",
+                    "grid_result", "audit_result",
+                ):
+                    st.session_state.pop(name, None)
+                st.rerun()
     seed = st.number_input(
         "Random seed",
         min_value=0,
         max_value=2_147_483_647,
         value=12_345,
         step=1,
+        key="rw-global-seed",
     )
     st.caption("The same seed and parameters reproduce the same stochastic result.")
     st.divider()
@@ -169,8 +189,6 @@ with st.sidebar:
     grid_tab,
     audit_tab,
     preset_tab,
-st.caption("Workspace order: Setup → Run → Results → Analysis → Verification / Export.")
-
 ) = st.tabs(
     [
         "1 · Overview — Study map",
@@ -185,6 +203,8 @@ st.caption("Workspace order: Setup → Run → Results → Analysis → Verifica
     ]
 )
 
+
+st.caption("Workspace order: Setup → Run → Results → Analysis → Verification / Export.")
 
 with overview_tab:
     st.subheader("Reconstructed study map")
